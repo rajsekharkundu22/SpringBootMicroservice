@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="credit" class="com.test.bean.CreditCard" />
+	<bean id="debit" class="com.test.bean.DebitCard" />
+	<bean id="sodexo" class="com.test.bean.SodexoCard" />
+	
+	
+	<!-- scope="scope_type" use to define scope of Spring Bean class-->
+	<bean id="payment" class="com.test.bean.PaymentService" scope="prototype">
+	<!-- for constructor injection :-
+	<constructor-arg ref="put id of dependent class id" /> -->
+	<!-- <constructor-arg ref="credit" />  -->
+	
+	<!-- for setter injection
+	<property name="target class id" ref="dependent class id"/> -->
+	<property name="payment" ref="credit"/>
+	</bean>
+
+</beans>
