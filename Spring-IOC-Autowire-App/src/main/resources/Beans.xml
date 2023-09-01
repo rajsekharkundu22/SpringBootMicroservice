@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="payment" class="com.test.bean.CreditCard" autowire-candidate="false"/>
+	<bean id="debit" class="com.test.bean.DebitCard" primary="true"/>
+	<bean id="sodexo" class="com.test.bean.SodexoCard" />
+	
+	<!-- Define autowired
+	When we write autowired in any spring bean class defination then IOC autometically understand
+	This is the target class which required dependent injection.
+	-->
+	
+	<!-- How autowire="byName" work ?
+	1st IOC container check what is the autowire mode. If autowire mode "byName" then IOC go insede target class
+	and check what is the reference variable name, and match with Spring bean classes ids, if both are match then inject
+	that dependent class object into target class object-->
+	<!--  <bean id="paymentService" class="com.test.bean.PaymentService" autowire="byName"></bean> -->
+	
+	<!-- How autowire="byType" work ?
+	If autowire mode "byType" then IOC go insede target class
+	and check what is the DataType of the reference variable, and match with same DataType of Spring bean in configuration file,
+	if both are match then inject that dependent class object into target class object-->
+	<!-- <bean id="paymentService" class="com.test.bean.PaymentService" autowire="byType"></bean> -->
+	
+	<!-- How resolve byType autowire ambiguity ?
+	We can resolve this ambiguity 2 ways.
+	1) autowire-candidate="false" => add this attribute into dependent bean defination. It's mean don't consider
+	this bean during autowireing.
+	2) primary="true" => add this attribute into dependent bean defination. It's mean this bean give the
+    highest priority during autowireing. 
+	Better to use primary="true" property then autowire-candidate-->
+	<!-- <bean id="paymentService" class="com.test.bean.PaymentService" autowire="byType"></bean> -->
+	
+	<!-- How autowire="constructor" work ?
+	To identify dependent bean, 1st it check with byName. With byName if it not able to identify the Bean 
+	then it will check with byType.-->
+	<bean id="paymentService" class="com.test.bean.PaymentService" autowire="constructor"></bean>
+	
+</beans>
