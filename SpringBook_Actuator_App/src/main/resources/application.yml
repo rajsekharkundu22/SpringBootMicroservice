@@ -1,0 +1,9 @@
+
+#Expose all Actuator endpoind
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: 'beans'
+      
