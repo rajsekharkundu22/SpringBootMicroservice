@@ -1,0 +1,22 @@
+server:
+  port: 2222
+spring:
+  application:
+    name: CLOUD-API-GATEWAY   
+#Routing Confiuration
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+      - id: microservice-1
+        uri: lb://Microservice-1
+        predicates:
+        - Path=/greet
+      - id: microservice-2
+        uri: lb://Microservice-2
+        predicates:
+        - Path=/welcome
+ 
