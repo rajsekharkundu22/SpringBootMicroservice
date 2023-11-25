@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: config-client-test
+    
+  config:
+    import: optional:configserver:http://localhost:9093
+    
+server:
+  port: 9094
