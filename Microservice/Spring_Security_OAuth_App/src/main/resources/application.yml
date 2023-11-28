@@ -1,0 +1,10 @@
+
+# OAuth2 configuration
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 151e66d3ac7c24df1e73
+            clientSecret: 8b341bad99841e8a16bd49485316edd1b6530732
