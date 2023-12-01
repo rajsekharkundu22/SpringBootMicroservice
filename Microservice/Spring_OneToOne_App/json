@@ -1,0 +1,8 @@
+{
+	"model": "D224",
+	"brand": "Dell" ,
+	"student":{
+            "studentName": "Jhon",
+	        "studentCity": "Kochi"
+		}
+}
