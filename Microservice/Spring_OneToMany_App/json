@@ -1,0 +1,16 @@
+
+    {
+        "teacherName": "Alex",
+        "teacherCity": "Kolkata",
+        "classes":[
+                {
+                    "className": "Java",
+                    "duration": "1hr"
+                },
+                {
+                    "className": "SpringBoot",
+                    "duration": "1:30hr"
+                }
+            ]
+    }
+
